@@ -11,6 +11,5 @@ def calc_n(x, y, counter):
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
-    r = calc_n(10, 2, 4)
-    logging.getLogger().setLevel(logging.INFO)
     r = calc_n(1, 2, 4)
+    r = calc_n(2, 3, 5)
