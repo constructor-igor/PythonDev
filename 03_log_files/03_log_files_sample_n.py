@@ -12,6 +12,13 @@ def calc_n(x, y, counter):
     logging.info(f"calc_o({x}, {y}, {counter})={r}")
     return r
 
+def config_console_log(console_level=logging.INFO):
+    logging.getLogger().setLevel(logging.DEBUG)
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(console_level)
+    console_handler.setFormatter(logging.Formatter("%(asctime)s [%(levelname)-7s] %(message)s"))
+    logging.getLogger().addHandler(console_handler)
+
 
 def config_file_log(file_path, create_new=False, file_level=logging.DEBUG):
     logging.getLogger().setLevel(logging.DEBUG)
@@ -28,5 +35,6 @@ if __name__ == "__main__":
     experiment_folder = os.path.dirname(__file__)
     experiment_log_file = os.path.join(experiment_folder, "experiment.log")
     config_file_log(experiment_log_file, create_new=True, file_level=logging.DEBUG)
+    config_console_log(console_level=logging.INFO)
     calc_n(1, 2, 3)
     calc_n(1, 2, 4)
