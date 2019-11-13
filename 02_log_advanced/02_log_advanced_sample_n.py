@@ -1,4 +1,3 @@
-import warnings
 import logging
 
 def calc_n(x, y, counter):
